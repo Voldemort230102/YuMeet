@@ -9,25 +9,34 @@
     <style type="text/css">
         @import "./css/index.css";
     </style>
-
+    <script>
+        function menu() {
+            $(".menu_div").animate({opacity: "1"},1);
+        }
+    </script>
 </head>
 <body class="container">
 <!--顶部-->
 <div class="header">
     <ul class="top_choice">
         <li>
-            <!--TODO:高途OJ图标选项栏-->
-            <a href="https://www.example.com" target="_self" style="display: flex; align-items: center;">
-                <img src="./img/Reason%20Creation%202.png" alt="点击图片跳转" style="height: 1.5em; width: auto; margin-right: 5px;">
+            <a href="javascript:void(0);" onclick="menu();" target="_self" style="display: flex; align-items: center;">
+                <img src="./img/download.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
             </a>
         </li>
+        <il>
+            <a href="https://voldemort230102.github.io/YuMeet" target="_self" style="display: flex; align-items: center;">
+                <img src="./img/Reason%20Creation%202.png" alt="YuMeet" style="height: 1.5em; width: auto; margin-right: 5px;">
+            </a>
+        </il>
         <li>
-            <a href="#">首页</a>
-        </li>
-        <li>
-            <a href="#">时间线</a>
+            <a>首页</a>
         </li>
     </ul>
+</div>
+<div class="menu_div">
+    <div class="menu">
+    </div>
 </div>
 <!--页足-->
 <div class="content"></div>

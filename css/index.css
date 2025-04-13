@@ -33,7 +33,7 @@ body {
     display: flex;
     align-items: center;
 }
-.top_choice > li:not(:first-child) {
+.top_choice > li:last-child {
     margin-left: 10px;
 }
 .top_choice a,
@@ -46,6 +46,30 @@ body {
     font-size: calc(13px + 2vmin);
     text-decoration: none;
     transition: background-color 0.3s;
+}
+.menu_div {
+    display: flex;
+    opacity: 0;
+    position: fixed;
+    z-index: 100;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.menu {
+    display: flex;
+    position: fixed;
+    z-index: 100;
+    align-items: stretch;
+    width: 40%;
+    height: 100%;
+    background-color: #ab67ab;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: calc(10px + 3vmin);
 }
 .container {
     display: flex;
