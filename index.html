@@ -12,19 +12,22 @@
     <script>
         $(function () {
             $("#menu").click(function () {
-            // function menu() {
                 $(".menu_div").fadeIn(250);
                 setTimeout(function () {
                     $(".menu").addClass("active");
                 }, 250); // 等动画结束再淡出遮罩
+                $(".menu_div").css("display", "flex");
+                setTimeout(function () {
+                    $("#unmenu img").addClass("active");
+                }, 700);
                 console.log("in");
             });
             $(".menu_div,#unmenu").click(function () {
-                // $(".menu_div").fadeOut(600);
                 $(".menu").removeClass("active");
                 setTimeout(function () {
                     $(".menu_div").fadeOut(250);
                 }, 250); // 等动画结束再淡出遮罩
+                $("#unmenu img").removeClass("active");
                 console.log("out");
             });
             $(".menu").click(function (e) {
@@ -56,6 +59,7 @@
     <div class="menu">
         <a id="unmenu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
             <img src="./img/download.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+            &emsp;返回
         </a>
     </div>
 </div>

@@ -50,6 +50,7 @@ body {
 }
 
 .menu_div {
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -59,6 +60,7 @@ body {
     z-index: 1000;
 }
 .menu {
+    display: flex;
     position: fixed;
     left: 0;
     top: 0;
@@ -66,7 +68,6 @@ body {
     height: 100%;
     background-color: #ab67ab;
     color: white;
-    display: flex;
     flex-direction: column;
     padding: 10px;
     font-size: calc(10px + 3vmin);
@@ -76,6 +77,21 @@ body {
 }
 .menu.active {
     transform: translateX(0); /* 显示时滑入 */
+}
+.menu a,
+.menu a:visited,
+.menu a:link {
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 14px 16px;
+    font-size: calc(13px + 2vmin);
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+#unmenu img.active {
+    transform: scaleX(-1);
+    transition: transform 0.3s;
 }
 
 .container {
