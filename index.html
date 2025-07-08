@@ -11,6 +11,15 @@
     </style>
     <script>
         $(function () {
+            // 动态不被当
+            function mainPadding() {
+                var headerHeight = $('.header').outerHeight(); // 获取包含 padding 的高度
+                $('.main').css('padding-top', headerHeight + 'px');
+            }
+            $(document).ready(mainPadding);
+            // 当窗口尺寸变化时自动更新
+            $(window).resize(mainPadding);
+            // 菜单
             $("#menu").click(function () {
                 $(".menu_div").fadeIn(250);
                 setTimeout(function () {
@@ -20,29 +29,40 @@
                 setTimeout(function () {
                     $("#unmenu img").addClass("active");
                 }, 700);
-                console.log("in");
             });
             $(".menu_div,#unmenu").click(function () {
                 $(".menu").removeClass("active");
                 setTimeout(function () {
                     $(".menu_div").fadeOut(250);
+                    $("#about").text("关于 ▼");
+                    $(".about").slideUp(0);
+                    $("#unmenu img").removeClass("active");
                 }, 250); // 等动画结束再淡出遮罩
-                $("#unmenu img").removeClass("active");
-                console.log("out");
             });
             $(".menu").click(function (e) {
                 e.stopPropagation(); // 阻止冒泡
             });
+            // 关于
+            $("#about").click(function () {
+                if($(".about").css("display") == "none") {
+                    $("#about").text("关于 ▲");
+                }
+                else {
+                    $("#about").text("关于 ▼");
+                }
+                $(".about").slideToggle(250);
+            });
         });
     </script>
 </head>
+
 <body class="container">
 <!--顶部-->
 <div class="header">
     <ul class="top_choice">
         <li>
             <a id="menu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
-                <img src="./img/download.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+                <img src="./img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
             </a>
         </li>
         <li>
@@ -55,13 +75,89 @@
         </li>
     </ul>
 </div>
+<!--菜单-->
 <div class="menu_div" style="display: none">
     <div class="menu">
         <a id="unmenu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
-            <img src="./img/download.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
-            &emsp;返回
+            <img src="./img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+            &emsp;收起
         </a>
+        <div class="navigate">
+            <a href="https://voldemort230102.github.io/YuMeet" target="_self" style="display: flex; align-items: center;">
+                首页
+            </a>
+            <a href="https://voldemort230102.github.io/YuMeet/timeline" target="_self" style="display: flex; align-items: center;">
+                时间线
+            </a>
+            <a href="https://voldemort230102.github.io/YuMeet/image" target="_self" style="display: flex; align-items: center;">
+                图库
+            </a>
+            <a id="about" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
+                关于 ▼
+            </a>
+            <div class="about" style="display: none">
+                <a href="https://voldemort230102.github.io/YuMeet/about/author" target="_self" style="display: flex; align-items: center;">
+                    关于作者
+                </a>
+                <a href="https://voldemort230102.github.io/YuMeet/about/" target="_self" style="display: flex; align-items: center;">
+                    关于
+                </a>
+                <a href="https://voldemort230102.github.io/YuMeet/about/project" target="_self" style="display: flex; align-items: center;">
+                    关于项目
+                </a>
+            </div>
+        </div>
     </div>
+</div>
+<!--主体-->
+<div class="main">
+    <div class="topic">
+        <h1>Reason Creation</h1>
+        <p>由 沧溟 建立</p>
+    </div>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
 </div>
 <!--页足-->
 <div class="content"></div>

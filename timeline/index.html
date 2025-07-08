@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>YuMeet</title>
+    <link rel="icon" href="https://livefile.xesimg.com/programme/python_assets/457664b8506c5df538ba5e681ec550bf.png">
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style type="text/css">
+        @import "./css/index.css";
+    </style>
+    <script>
+        $(function () {
+            $("#menu").click(function () {
+                $(".menu_div").fadeIn(250);
+                setTimeout(function () {
+                    $(".menu").addClass("active");
+                }, 250); // 等动画结束再淡出遮罩
+                $(".menu_div").css("display", "flex");
+                setTimeout(function () {
+                    $("#unmenu img").addClass("active");
+                }, 700);
+                console.log("in");
+            });
+            $(".menu_div,#unmenu").click(function () {
+                $(".menu").removeClass("active");
+                setTimeout(function () {
+                    $(".menu_div").fadeOut(250);
+                }, 250); // 等动画结束再淡出遮罩
+                $("#unmenu img").removeClass("active");
+                console.log("out");
+            });
+            $(".menu").click(function (e) {
+                e.stopPropagation(); // 阻止冒泡
+            });
+        });
+    </script>
+</head>
+
+<body class="container">
+<!--顶部-->
+<div class="header">
+    <ul class="top_choice">
+        <li>
+            <a id="menu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
+                <img src="./img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+            </a>
+        </li>
+        <li>
+            <a href="https://voldemort230102.github.io/YuMeet" target="_self" style="display: flex; align-items: center;">
+                <img src="./img/Reason%20Creation%202.png" alt="YuMeet" style="height: 1.5em; width: auto; margin-right: 5px;">
+            </a>
+        </li>
+        <li>
+            <a>首页</a>
+        </li>
+    </ul>
+</div>
+<div class="menu_div" style="display: none">
+    <div class="menu">
+        <a id="unmenu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
+            <img src="./img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+            &emsp;收起
+        </a>
+        <div class="navigate">
+            <a href="https://voldemort230102.github.io/YuMeet" target="_self" style="display: flex; align-items: center;">
+                首页
+            </a>
+            <a href="./timeline" target="_self" style="display: flex; align-items: center;">
+                首页
+            </a>
+        </div>
+    </div>
+</div>
+<!--页足-->
+<div class="content"></div>
+<footer class="footer">
+    <p>© Reason Creation. All rights reserved.</p>
+</footer>
+</body>
+</html>
