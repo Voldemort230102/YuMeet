@@ -122,6 +122,23 @@ body {
     color: white;
     text-align: center;
     padding: 30px;
+    font-size: clamp(20px, 15px + 3vmin, 50px);
+}
+.main .page {
+    background-color: white;
+    padding: 20px 15px;
+    margin: 8.2px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s all;
+    flex: 1 0 21%; /* 四个卡片一行 */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.main .page:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .container {
