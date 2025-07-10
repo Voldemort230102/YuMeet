@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'M';
+    src: url("../font/ZhongQiZhiMangXingShu.woff2") format('woff2');
+    font-display: swap;
+}
 * {
     box-sizing: border-box;
 }
@@ -117,6 +122,11 @@ body {
     font-size: calc(13px + 2vmin);
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: var(--footer-height); /* 让 container 至少等于视口高度 */
+}
 .main .topic {
     background-color: #333;
     color: white;
@@ -124,21 +134,37 @@ body {
     padding: 30px;
     font-size: clamp(20px, 15px + 3vmin, 50px);
 }
-.main .page {
+.main .topic p {
+    font-size: clamp(10px, 15px + 2vmin, 30px);
+}
+.main .page,
+.main .page .inside{
     background-color: white;
     padding: 20px 15px;
-    margin: 8.2px;
+    margin: 50px;
     text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    font-size: clamp(15px, 10px + 3vmin, 37.5px);
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,0.2);
     transition: 0.3s all;
-    flex: 1 0 21%; /* 四个卡片一行 */
-    cursor: pointer;
+    flex: 1; /* 四个卡片一行 */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.main .page:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+.main .page .inside {
+    background-color: #f9f9f9; /* 比白色略深一点 */
+    border: 1px solid #ddd;    /* 添加浅灰边框 */
+    border-radius: 8px;
+    margin: 10px;
+    flex: 0;
+    font-size: clamp(15px, 10px + 3vmin, 37.5px);
+}
+.main .page:hover,
+.main .page .inside:hover{
+    box-shadow: 0 24px 48px 0 rgba(0,0,0,0.4);
+}
+.main .page .inside .word {
+    font-family: 'M', cursive;
 }
 
 .container {

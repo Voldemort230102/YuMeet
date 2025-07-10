@@ -19,6 +19,17 @@
             $(document).ready(mainPadding);
             // 当窗口尺寸变化时自动更新
             $(window).resize(mainPadding);
+
+            // 动态更改main的高度
+            function mainHeight() {
+                // 获取footer高度
+                const footerHeight = $(window).height() - $('.footer').outerHeight(true);
+                document.documentElement.style.setProperty('--footer-height', `${footerHeight}px`);
+            }
+            $(document).ready(mainHeight);
+            // 当窗口尺寸变化时自动更新
+            $(window).resize(mainHeight);
+
             // 菜单
             $("#menu").click(function () {
                 $(".menu_div").fadeIn(250);
@@ -112,15 +123,21 @@
 <!--主体-->
 <div class="main">
     <div class="topic">
-        <h1>YuMeet</h1>
+        <h1>66666666</h1>
         <p>由 沧溟 建立</p>
     </div>
     <div class="page">
-        111
+        <p>谢铭：<a href="https://github.com" target="_blank">Github</a></p>
+        <div class="inside">
+            <div class="word">
+                愿此去繁花似遇，再相逢依旧如故。
+            </div>
+        </div>
+        <div class="content"></div>
     </div>
 </div>
 <!--页足-->
-<div class="content"></div>
+<!--<div class="content"></div>-->
 <footer class="footer">
     <p>© Reason Creation. All rights reserved.</p>
 </footer>
