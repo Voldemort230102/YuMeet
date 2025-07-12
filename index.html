@@ -63,6 +63,17 @@
                 }
                 $(".about").slideToggle(250);
             });
+
+            // 随机文字
+            function randint(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            sentences = [
+                "愿此去繁花似遇，再相逢依旧如故<div class=\"writer\">——You</div>",
+                "若将岁月开成花，人生何处不芳华<div class=\"writer\">——You</div>"
+            ];
+            const n = randint(0,sentences.length-1);
+            $(".word").html(sentences[n]);
         });
     </script>
 </head>
@@ -128,11 +139,21 @@
     </div>
     <div class="page">
         <p>谢铭：<a href="https://github.com" target="_blank">Github</a></p>
+        <br>
         <div class="inside">
             <div class="word">
-                愿此去繁花似遇，再相逢依旧如故。
+                愿此去繁花似遇，再相逢依旧如故
+                <div class="writer">
+                    ——You
+                </div>
             </div>
         </div>
+        <br>
+        <p>
+            更多内容请点击左上角
+            <img src="./img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+            菜单查看
+        </p>
         <div class="content"></div>
     </div>
 </div>
