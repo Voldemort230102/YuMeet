@@ -3,14 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>YuMeet</title>
-    <link rel="icon" href="https://livefile.xesimg.com/programme/python_assets/457664b8506c5df538ba5e681ec550bf.png">
-    <script src="./js/jquery-3.7.1.min.js"></script>
+    <link rel="icon" href="../img/YuMeet1.png">
+    <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style type="text/css">
         @import "./css/index.css";
     </style>
     <script>
         $(function () {
+            // 动态不被当
+            function mainPadding() {
+                var headerHeight = $('.header').outerHeight(); // 获取包含 padding 的高度
+                $('.main').css('padding-top', headerHeight + 'px');
+            }
+            $(document).ready(mainPadding);
+            // 当窗口尺寸变化时自动更新
+            $(window).resize(mainPadding);
+
+            // 动态更改main的高度
+            function mainAhearderHeight() {
+                // 获取footer高度
+                const footerHeight = $(window).height() - $('.footer').outerHeight(true);
+                const headerHeight = $('.header').outerHeight(true);
+                const headerHeight1 = headerHeight + 10;
+                const headerHeight2 = -(headerHeight + 10);
+                document.documentElement.style.setProperty('--footer-height', `${footerHeight}px`);
+                document.documentElement.style.setProperty('--header-height1', `${headerHeight1}px`);
+                document.documentElement.style.setProperty('--header-height2', `${headerHeight2}px`);
+            }
+            $(document).ready(mainAhearderHeight);
+            // 当窗口尺寸变化时自动更新
+            $(window).resize(mainAhearderHeight);
+
+            // 菜单
             $("#menu").click(function () {
                 $(".menu_div").fadeIn(250);
                 setTimeout(function () {
@@ -20,18 +45,28 @@
                 setTimeout(function () {
                     $("#unmenu img").addClass("active");
                 }, 700);
-                console.log("in");
             });
             $(".menu_div,#unmenu").click(function () {
                 $(".menu").removeClass("active");
                 setTimeout(function () {
                     $(".menu_div").fadeOut(250);
+                    $("#about").text("关于 ▼");
+                    $(".about").slideUp(0);
+                    $("#unmenu img").removeClass("active");
                 }, 250); // 等动画结束再淡出遮罩
-                $("#unmenu img").removeClass("active");
-                console.log("out");
             });
             $(".menu").click(function (e) {
                 e.stopPropagation(); // 阻止冒泡
+            });
+            // 关于
+            $("#about").click(function () {
+                if($(".about").css("display") == "none") {
+                    $("#about").text("关于 ▲");
+                }
+                else {
+                    $("#about").text("关于 ▼");
+                }
+                $(".about").slideToggle(250);
             });
         });
     </script>
@@ -43,37 +78,91 @@
     <ul class="top_choice">
         <li>
             <a id="menu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
-                <img src="./img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+                <img src="../img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
             </a>
         </li>
         <li>
             <a href="https://voldemort230102.github.io/YuMeet" target="_self" style="display: flex; align-items: center;">
-                <img src="./img/Reason%20Creation%202.png" alt="YuMeet" style="height: 1.5em; width: auto; margin-right: 5px;">
+                <img src="../img/YuMeet2.png" alt="YuMeet" style="height: 1.5em; width: auto; margin-right: 5px;">
             </a>
         </li>
         <li>
-            <a>首页</a>
+            <a>时间线</a>
         </li>
     </ul>
 </div>
+<!--菜单-->
 <div class="menu_div" style="display: none">
     <div class="menu">
         <a id="unmenu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
-            <img src="./img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+            <img src="../img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
             &emsp;收起
         </a>
         <div class="navigate">
             <a href="https://voldemort230102.github.io/YuMeet" target="_self" style="display: flex; align-items: center;">
                 首页
             </a>
-            <a href="./timeline" target="_self" style="display: flex; align-items: center;">
-                首页
+            <a href="https://voldemort230102.github.io/YuMeet/timeline" target="_self" style="display: flex; align-items: center;">
+                时间线
             </a>
+            <a href="https://voldemort230102.github.io/YuMeet/image" target="_self" style="display: flex; align-items: center;">
+                图库
+            </a>
+            <a id="about" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
+                关于 ▼
+            </a>
+            <div class="about" style="display: none">
+                <a href="https://voldemort230102.github.io/YuMeet/about/author" target="_self" style="display: flex; align-items: center;">
+                    关于作者
+                </a>
+                <a href="https://voldemort230102.github.io/YuMeet/about/" target="_self" style="display: flex; align-items: center;">
+                    关于
+                </a>
+                <a href="https://voldemort230102.github.io/YuMeet/about/project" target="_self" style="display: flex; align-items: center;">
+                    关于项目
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--主体-->
+<div class="main">
+    <div class="topic">
+        <h1>时间线</h1>
+        <p>是历史也是未来</p>
+    </div>
+    <div class="row">
+        <div class="left">
+            <div class="page">
+                目录
+                <a href="#1">11111</a>
+                <a href="#2">11111</a>
+            </div>
+        </div>
+        <div class="right">
+            <div class="page">
+                <h3>时间线</h3>
+                <div id="1" style="height: var(--header-height1); margin-top: var(--header-height2);"></div>
+                <strong>导航</strong>
+                <p>
+                    &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
+                    <br>
+                    &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
+                    <br>
+                    &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
+                </p>
+
+                <div id="2" style="height: var(--header-height1); margin-top: var(--header-height2);"></div>
+                <strong>导航</strong>
+                <p>
+                    &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
+                </p>
+            </div>
         </div>
     </div>
 </div>
 <!--页足-->
-<div class="content"></div>
+<!--<div class="content"></div>-->
 <footer class="footer">
     <p>© Reason Creation. All rights reserved.</p>
 </footer>
