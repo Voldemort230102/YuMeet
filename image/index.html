@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>YuMeet</title>
-    <link rel="icon" href="./img/YuMeet1.png">
-    <script src="./js/jquery-3.7.1.min.js"></script>
+    <link rel="icon" href="../img/YuMeet1.png">
+    <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style type="text/css">
         @import "./css/index.css";
@@ -21,14 +21,14 @@
             $(window).resize(mainPadding);
 
             // 动态更改main的高度
-            function mainHeight() {
+            function mainAhearderHeight() {
                 // 获取footer高度
                 const footerHeight = $(window).height() - $('.footer').outerHeight(true);
                 document.documentElement.style.setProperty('--footer-height', `${footerHeight}px`);
             }
-            $(document).ready(mainHeight);
+            $(document).ready(mainAhearderHeight);
             // 当窗口尺寸变化时自动更新
-            $(window).resize(mainHeight);
+            $(window).resize(mainAhearderHeight);
 
             // 菜单
             $("#menu").click(function () {
@@ -63,17 +63,22 @@
                 }
                 $(".about").slideToggle(250);
             });
-
-            // 随机文字
-            function randint(min, max) {
-                return Math.floor(Math.random() * (max - min + 1)) + min;
-            }
-            let sentences = [
-                "愿此去繁花似遇，再相逢依旧如故<div class=\"writer\">——You</div>",
-                "若将岁月开成花，人生何处不芳华<div class=\"writer\">——You</div>"
+            let images_l = [
+                "./img/CSS.png"
             ];
-            const n = randint(0,sentences.length-1);
-            $(".word").html(sentences[n]);
+            let images_r = [
+                "./img/CSS.png"
+            ];
+            let code = "";
+            for(let i = 0;i<images_l.length;i++) {
+                code += '<img src="' + images_l[i] + '">';
+            }
+            $("#l").html(code);
+            code = "";
+            for(let i = 0;i<images_r.length;i++) {
+                code += '<img src="' + images_r[i] + '">';
+            }
+            $("#r").html(code);
         });
     </script>
 </head>
@@ -84,16 +89,16 @@
     <ul class="top_choice">
         <li>
             <a id="menu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
-                <img src="./img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+                <img src="../img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
             </a>
         </li>
         <li>
             <a href="https://voldemort230102.github.io/YuMeet" target="_self" style="display: flex; align-items: center;">
-                <img src="./img/YuMeet2.png" alt="YuMeet" style="height: 1.5em; width: auto; margin-right: 5px;">
+                <img src="../img/YuMeet2.png" alt="YuMeet" style="height: 1.5em; width: auto; margin-right: 5px;">
             </a>
         </li>
         <li>
-            <a>首页</a>
+            <a>图库</a>
         </li>
     </ul>
 </div>
@@ -101,7 +106,7 @@
 <div class="menu_div" style="display: none">
     <div class="menu">
         <a id="unmenu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
-            <img src="./img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+            <img src="../img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
             &emsp;收起
         </a>
         <div class="navigate">
@@ -134,27 +139,12 @@
 <!--主体-->
 <div class="main">
     <div class="topic">
-        <h1>YuMeet</h1>
-        <p>由 沧溟 建立</p>
+        <h1>6666</h1>
+        <p>“咔嚓”——锁住美好</p>
     </div>
-    <div class="page">
-        <p>谢铭：<a href="https://github.com" target="_blank">Github</a></p>
-        <br>
-        <div class="inside">
-            <div class="word">
-                愿此去繁花似遇，再相逢依旧如故
-                <div class="writer">
-                    ——You
-                </div>
-            </div>
-        </div>
-        <br>
-        <p>
-            更多内容请点击左上角
-            <img src="./img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
-            菜单查看
-        </p>
-        <div class="content"></div>
+    <div class="page" style="display: flex">
+        <div class="column" id="l"></div>
+        <div class="column" id="r"></div>
     </div>
 </div>
 <!--页足-->
