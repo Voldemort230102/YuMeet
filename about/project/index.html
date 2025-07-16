@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>YuMeet</title>
-    <link rel="icon" href="../img/ReasonCreation.png">
-    <script src="../js/jquery-3.7.1.min.js"></script>
+    <link rel="icon" href="../../img/ReasonCreation.png">
+    <script src="../../js/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style type="text/css">
         @import "./css/index.css";
@@ -21,19 +21,14 @@
             $(window).resize(mainPadding);
 
             // 动态更改main的高度
-            function mainAhearderHeight() {
+            function mainHeight() {
                 // 获取footer高度
                 const footerHeight = $(window).height() - $('.footer').outerHeight(true);
-                const headerHeight = $('.header').outerHeight(true);
-                const headerHeight1 = headerHeight + 10;
-                const headerHeight2 = -(headerHeight + 10);
                 document.documentElement.style.setProperty('--footer-height', `${footerHeight}px`);
-                document.documentElement.style.setProperty('--header-height1', `${headerHeight1}px`);
-                document.documentElement.style.setProperty('--header-height2', `${headerHeight2}px`);
             }
-            $(document).ready(mainAhearderHeight);
+            $(document).ready(mainHeight);
             // 当窗口尺寸变化时自动更新
-            $(window).resize(mainAhearderHeight);
+            $(window).resize(mainHeight);
 
             // 菜单
             $("#menu").click(function () {
@@ -78,16 +73,16 @@
     <ul class="top_choice">
         <li>
             <a id="menu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
-                <img src="../img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+                <img src="../../img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
             </a>
         </li>
         <li>
             <a href="https://voldemort230102.github.io/YuMeet" target="_self" style="display: flex; align-items: center;">
-                <img src="../img/YuMeet.png" alt="YuMeet" style="height: 1.5em; width: auto; margin-right: 5px;">
+                <img src="../../img/YuMeet.png" alt="YuMeet" style="height: 1.5em; width: auto; margin-right: 5px;">
             </a>
         </li>
         <li>
-            <a>时间线</a>
+            <a>首页</a>
         </li>
     </ul>
 </div>
@@ -95,7 +90,7 @@
 <div class="menu_div" style="display: none">
     <div class="menu">
         <a id="unmenu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
-            <img src="../img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+            <img src="../../img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
             &emsp;收起
         </a>
         <div class="navigate">
@@ -128,37 +123,16 @@
 <!--主体-->
 <div class="main">
     <div class="topic">
-        <h1>时间线</h1>
-        <p>是历史也是未来</p>
+        <h1>关于 项目</h1>
+        <p>这个项目总算竣工了！</p>
     </div>
-    <div class="row">
-        <div class="left">
-            <div class="page">
-                目录
-                <a href="#1">11111</a>
-                <a href="#2">11111</a>
-            </div>
-        </div>
-        <div class="right">
-            <div class="page">
-                <h3>时间线</h3>
-                <div id="1" style="height: var(--header-height1); margin-top: var(--header-height2);"></div>
-                <strong>导航</strong>
-                <p>
-                    &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
-                    <br>
-                    &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
-                    <br>
-                    &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
-                </p>
-
-                <div id="2" style="height: var(--header-height1); margin-top: var(--header-height2);"></div>
-                <strong>导航</strong>
-                <p>
-                    &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
-                </p>
-            </div>
-        </div>
+    <div class="page">
+        <p style="margin-bottom: 4px;">谢铭：<a href="https://github.com" target="_blank">Github</a></p>
+        <s>还是它！</s>
+        <p style="margin-bottom: 4px;">YuMeet 仓库建立于 2025年3月2日</p>
+        <p style="margin-top: 4px; margin-bottom: 4px;">（酝酿ing……）</p>
+        <p style="margin-top: 4px;">emm……这还用关于吗非常奇怪的一个页面……</p>
+        <div class="content"></div>
     </div>
 </div>
 <!--页足-->
