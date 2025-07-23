@@ -1,21 +1,3 @@
-@font-face {
-    font-family: 'mxs';
-    src: url("../../font/ZhongQiZhiMangXingShu.woff2") format('woff2'),
-    url("../../font/ZhongQiZhiMangXingShu.woff") format("woff");
-    font-display: swap;
-}
-@font-face {
-    font-family: 'qhk';
-    src: url("../../font/YanShiQiuHongKai.woff2") format('woff2'),
-    url("../../font/YanShiQiuHongKai.woff") format("woff");
-    font-display: swap;
-}
-@font-face {
-    font-family: 'yrxk';
-    src: url("../../font/YanShiYouRanXiaoKai.woff2") format('woff2'),
-    url("../../font/YanShiYouRanXiaoKai.woff") format("woff");
-    font-display: swap;
-}
 * {
     box-sizing: border-box;
 }
