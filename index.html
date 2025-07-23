@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>YuMeet</title>
-    <link rel="icon" href="./img/ReasonCreation.png">
-    <script src="./js/jquery-3.7.1.min.js"></script>
+    <link rel="icon" href="https://livefile.xesimg.com/programme/python_assets/d230afa64053c45f5849c8bbfbd6521e.png">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style type="text/css">
         @import "./css/index.css";
@@ -65,14 +64,51 @@
             });
 
             // 随机文字
-            function randint(min, max) {
-                return Math.floor(Math.random() * (max - min + 1)) + min;
+            function randint(m, n) {
+                m = Math.ceil(m)
+                n = Math.floor(n)
+                const range = n - m + 1
+                if (range <= 0) throw new Error("Invalid range")
+
+                const maxUint32 = 0xFFFFFFFF
+                const array = new Uint32Array(1)
+                window.crypto.getRandomValues(array)
+                const rand = array[0]
+
+                return m + (rand % range)
             }
             let sentences = [
-                "愿此去繁花似遇，再相逢依旧如故<div class=\"writer\">——You</div>",
-                "若将岁月开成花，人生何处不芳华<div class=\"writer\">——You</div>"
+                "自由一生，是我全部的野心",
+                "拥抱我直到我拥有和你相同的香气",
+                "花会沿途盛开，我们的未来也是",
+                "你配得上世间所有的美好",
+                "风是自由的吐息，你是我的文艺复兴",
+                "夏天会周而复始，该相逢的人会再相逢",
+                "有些人光是相遇就很有意义",
+                "山河不足重，重在遇知己",
+                "岁月极美，在于它必然的流逝",
+                "青春是一本太仓促的书，我们含着泪，一读再读",
+                "长风万里不动声色，山水一程三生有幸",
+                "于高山之巅，方见大河奔腾；于群峰之上，更觉长风浩荡",
+                "你不比一颗星暗，也不比有一棵树底",
+                "若将岁月开成花，人生何处不芳华",
+                "开心里面有一大半是你",
+                "趁我们头脑发热，我们要不顾一切",
+                "一半烟火以谋生，一半诗意以谋爱",
+                "未来可期，余生有你",
+                "纵横千里独行客，何惧前路雨潇潇",
+                "山河自有归期，风雨自有相逢",
+                "为了你，负了天下，又如何",
+                "愿此去繁花似遇，再相逢依旧如故<div class=\"writer\"><span class=\"dash\">——You</span></div>",
+                "在天愿作比翼鸟，在地愿为连理枝<div class=\"writer\"><span class=\"dash\">——</span>《长恨歌》</div>",
+                "昨夜星辰昨夜风，画楼西畔桂堂东<br>身无彩凤双飞翼，心有灵犀一点通<div class=\"writer\"><span class=\"dash\">——</span>《无题》</div>",
+                "锦瑟无端五十弦，一弦一柱思华年<div class=\"writer\"><span class=\"dash\">——</span>《锦瑟》</div>",
+                "两情若是长久时，又岂在朝朝暮暮<div class=\"writer\"><span class=\"dash\">——</span>《鹊桥仙》</div>",
+                "情不知所起，一往而深<div class=\"writer\"><span class=\"dash\">——You</span></div>",
+                "水从来没有完全忘记自己曾经是冰<div class=\"writer\"><span class=\"dash\">——</span>詹姆斯·特赖菲尔</div>"
             ];
             const n = randint(0,sentences.length-1);
+            console.log(n);
             $(".word").html(sentences[n]);
         });
     </script>
@@ -84,12 +120,12 @@
     <ul class="top_choice">
         <li>
             <a id="menu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
-                <img src="./img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+                <img src="https://livefile.xesimg.com/programme/python_assets/8dad10e36bc5005b311562298a17a4bf.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
             </a>
         </li>
         <li>
             <a href="https://voldemort230102.github.io/YuMeet" target="_self" style="display: flex; align-items: center;">
-                <img src="./img/YuMeet.png" alt="YuMeet" style="height: 1.5em; width: auto; margin-right: 5px;">
+                <img src="https://livefile.xesimg.com/programme/python_assets/08bdd2d16ed7fccce4950f61aa0c96f7.png" alt="YuMeet" style="height: 1.5em; width: auto; margin-right: 5px;">
             </a>
         </li>
         <li>
@@ -101,7 +137,7 @@
 <div class="menu_div" style="display: none">
     <div class="menu">
         <a id="unmenu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
-            <img src="./img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+            <img src="https://livefile.xesimg.com/programme/python_assets/8dad10e36bc5005b311562298a17a4bf.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
             &emsp;收起
         </a>
         <div class="navigate">
@@ -144,14 +180,14 @@
             <div class="word">
                 愿此去繁花似遇，再相逢依旧如故
                 <div class="writer">
-                    ——You
+                    <span class="dash">——You</span>
                 </div>
             </div>
         </div>
         <br>
         <p>
             更多内容请点击左上角
-            <img src="./img/menu.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
+            <img src="https://livefile.xesimg.com/programme/python_assets/8dad10e36bc5005b311562298a17a4bf.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
             菜单查看
         </p>
         <div class="content"></div>
