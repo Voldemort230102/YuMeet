@@ -184,6 +184,9 @@ body {
 .writer {
     text-align: right;
 }
+.page small {
+    font-size: 70%;
+}
 
 .container {
     display: flex;

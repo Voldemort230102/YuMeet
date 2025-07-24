@@ -67,6 +67,30 @@
                 }
                 $(".about").slideToggle(250);
             });
+
+            // 语录壳子
+            for(let i = 0; i < 5; i++) {
+                $(".page")[0].innerHTML += "<div class=\"inside\"> <div class=\"word\"> </div></div>";
+            }
+
+            // 每页5条语录
+            let excerpt = [
+                {
+                    "愿此去繁花似遇，再相逢依旧如故": "1",
+                    "": "",
+                    "": "",
+                    "": "",
+                    "": ""
+                },
+                {
+                    "": "",
+                    "": "",
+                    "": "",
+                    "": "",
+                    "": ""
+                }
+            ];
+
         });
     </script>
 </head>
@@ -86,7 +110,7 @@
             </a>
         </li>
         <li>
-            <a>时间线</a>
+            <a>摘录</a>
         </li>
     </ul>
 </div>
@@ -101,8 +125,8 @@
             <a href="https://voldemort230102.github.io/YuMeet" target="_self" style="display: flex; align-items: center;">
                 首页
             </a>
-            <a href="https://voldemort230102.github.io/YuMeet/timeline" target="_self" style="display: flex; align-items: center;">
-                时间线
+            <a href="https://voldemort230102.github.io/YuMeet/excerpt" target="_self" style="display: flex; align-items: center;">
+                摘录
             </a>
             <a href="https://voldemort230102.github.io/YuMeet/image" target="_self" style="display: flex; align-items: center;">
                 图库
@@ -127,37 +151,21 @@
 <!--主体-->
 <div class="main">
     <div class="topic">
-        <h1>时间线</h1>
-        <p>是历史也是未来</p>
+        <h1>666666</h1>
+        <p>感受？也许是吧……</p>
     </div>
-    <div class="row">
-        <div class="left">
-            <div class="page">
-                目录
-                <a href="#1">11111</a>
-                <a href="#2">11111</a>
-            </div>
+    <div class="page" style="display: flex;">
+        <!--<div class="content"></div>-->
+    </div>
+    <div id="1" class="page" style="display: none; flex: 0">
+        <div class="choice" style="font-size: 0.9em;">
+            <a href="javascript:void(0);" onclick="switchtb('home');">返回上一级</a>
         </div>
-        <div class="right">
-            <div class="page">
-                <h3>时间线</h3>
-                <div id="1" style="height: var(--header-height1); margin-top: var(--header-height2);"></div>
-                <strong>导航</strong>
-                <p>
-                    &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
-                    <br>
-                    &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
-                    <br>
-                    &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
-                </p>
-
-                <div id="2" style="height: var(--header-height1); margin-top: var(--header-height2);"></div>
-                <strong>导航</strong>
-                <p>
-                    &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
-                </p>
-            </div>
+        <h3>这是一段话</h3>
+        <div style="text-align: left">
+            &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
         </div>
+        <br>
     </div>
 </div>
 <!--页足-->
