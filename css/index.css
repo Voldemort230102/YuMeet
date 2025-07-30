@@ -1,19 +1,19 @@
 @font-face {
     font-family: 'mxs';
     src: url("https://livefile.xesimg.com/programme/python_assets/b3a58137b0f5a0b214d84b604ed358d2.woff2") format('woff2'),
-    url("../font/ZhongQiZhiMangXingShu.woff") format("woff");
+    url("https://livefile.xesimg.com/programme/python_assets/bba33a5d19ca5f6cf69c516ae567ec0a.woff") format("woff");
     font-display: swap;
 }
 @font-face {
     font-family: 'qhk';
-    src: url("../font/YanShiQiuHongKai.woff2") format('woff2'),
-    url("../font/YanShiQiuHongKai.woff") format("woff");
+    src: url("https://livefile.xesimg.com/programme/python_assets/1a91b7d4ba6465a4a3ac3498e27e883d.woff2") format('woff2'),
+    url("https://livefile.xesimg.com/programme/python_assets/a1c8492385993b451a58e03f72f3ea8b.woff") format("woff");
     font-display: swap;
 }
 @font-face {
     font-family: 'yrxk';
-    src: url("../font/YanShiYouRanXiaoKai.woff2") format('woff2'),
-    url("../font/YanShiYouRanXiaoKai.woff") format("woff");
+    src: url("https://livefile.xesimg.com/programme/python_assets/42868672c4db23e564f06d3fe4aa535f.woff2") format('woff2'),
+    url("https://livefile.xesimg.com/programme/python_assets/bb8615342ed4582c0bc2b81995116ec3.woff") format("woff");
     font-display: swap;
 }
 * {
