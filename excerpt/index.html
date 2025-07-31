@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <title>YuMeet</title>
     <link rel="icon" href="https://livefile.xesimg.com/programme/python_assets/d230afa64053c45f5849c8bbfbd6521e.png">
+    <link rel="preload" href="https://livefile.xesimg.com/programme/python_assets/b3a58137b0f5a0b214d84b604ed358d2.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://livefile.xesimg.com/programme/python_assets/bba33a5d19ca5f6cf69c516ae567ec0a.woff" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://livefile.xesimg.com/programme/python_assets/1a91b7d4ba6465a4a3ac3498e27e883d.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://livefile.xesimg.com/programme/python_assets/a1c8492385993b451a58e03f72f3ea8b.woff" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://livefile.xesimg.com/programme/python_assets/42868672c4db23e564f06d3fe4aa535f.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://livefile.xesimg.com/programme/python_assets/bb8615342ed4582c0bc2b81995116ec3.woff" as="font" type="font/woff2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style type="text/css">
         @import "./css/index.css";
@@ -68,22 +74,102 @@
                 $(".about").slideToggle(250);
             });
 
-            // 语录壳子
-            for(let i = 0; i < 5; i++) {
-                $(".page")[0].innerHTML += "<div class=\"inside\"> <div class=\"word\"> </div></div>";
+            window.switchtb = function (id) {
+                let lst = ['foreword', 'body',
+                    '0'];
+                for (let i = 0;i<=lst.length-1;i++)
+                {
+                    if (lst[i] == id)
+                    {
+                        $("#"+lst[i]).css("display","flex");
+                    }
+                    else
+                    {
+                        $("#"+lst[i]).css("display","none");
+                    }
+                }
+            }
+            let lstP = ['p0', 'p1', 'p2', 'p3', 'p4'];
+            window.switchbody = function (id) {
+                switchtb("body");
+                for (let i = 0;i<=lstP.length-1;i++)
+                {
+                    if (lstP[i] == id)
+                    {
+                        $("#"+lstP[i]).css("display","");
+                    }
+                    else
+                    {
+                        $("#"+lstP[i]).css("display","none");
+                    }
+                }
             }
 
-            // 每页5条语录
-            let excerpt = [
-                {
-                    "愿此去繁花似遇，再相逢依旧如故": "1",
-                    "愿此去繁花似遇，再相逢依旧如故": "2",
-                    "愿此去繁花似遇，再相逢依旧如故": "3",
-                    "愿此去繁花似遇，再相逢依旧如故": "4",
-                    "愿此去繁花似遇，再相逢依旧如故": "5"
+            function whichOn() {
+                lstP
+            // TODO:这里！！！！！！！！！！！！！！！
+            }
+            function show () {
+                // 每页5条语录
+                let excerpt = [
+                    {
+                        "愿此去繁花似遇，再相逢依旧如故": "1",
+                        "愿此去繁花似遇。再相逢依旧如故": "2",
+                        "愿此去繁花似遇、再相逢依旧如故": "3",
+                        "愿此去繁花似遇；再相逢依旧如故": "4",
+                        "愿此去繁花似遇：再相逢依旧如故": "5"
+                    },
+                    {
+                        "这段文字上面的选项卡了吗。": "1",
+                        "这段文字上面的选项卡了吗、": "2",
+                        "这段文字上面的选项卡了吗？": "3",
+                        "这段文字上面的选项卡了吗！": "4",
+                        "这段文字上面的选项卡了吗@": "5"
+                    },
+                    {
+                        "愿此去繁花似遇，再相逢依旧如故": "1",
+                        "愿此去繁花似遇。再相逢依旧如故": "2",
+                        "愿此去繁花似遇、再相逢依旧如故": "3",
+                        "愿此去繁花似遇；再相逢依旧如故": "4",
+                        "愿此去繁花似遇：再相逢依旧如故": "5"
+                    },
+                    {
+                        "愿此去繁花似遇，再相逢依旧如故": "1",
+                        "愿此去繁花似遇。再相逢依旧如故": "2",
+                        "愿此去繁花似遇、再相逢依旧如故": "3",
+                        "愿此去繁花似遇；再相逢依旧如故": "4",
+                        "愿此去繁花似遇：再相逢依旧如故": "5"
+                    },
+                    {
+                        "愿此去繁花似遇，再相逢依旧如故": "1",
+                        "愿此去繁花似遇。再相逢依旧如故": "2",
+                        "愿此去繁花似遇、再相逢依旧如故": "3",
+                        "愿此去繁花似遇；再相逢依旧如故": "4",
+                        "愿此去繁花似遇：再相逢依旧如故": "5"
+                    }
+                ];
+                let key = [];
+                let page_sum = excerpt.length;
+                for (let i = 0; i < page_sum; i++) {
+                    key.push(Object.keys(excerpt[i]));
+                    $(".page")[1].innerHTML += "<div id='p"+i+"'></div>";
+                    // 语录壳子
+                    for (let j = 0; j < 5; j++) {
+                        $("#p"+i).append("<div class=\"inside\" onclick='switchtb("+(i*5+j)+");'> <div class=\"word\">"+key[i][j]+"</div></div>");
+                    }
+                    if(i != 0) {
+                        $("#p"+i).css("display","none");
+                    }
                 }
-            ];
 
+                $("#body").append("<div id='pageNum'></div>");
+                $("#pageNum").append("<div class='pageNum'><</div>");
+                for (let j = 0; j < page_sum; j++) {
+                    $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p"+j+"\");'>"+(j+1)+"</div>");
+                }
+                $("#pageNum").append("<div class='pageNum'>></div>");
+            }
+            $(document).ready(show);
         });
     </script>
 </head>
@@ -108,7 +194,7 @@
     </ul>
 </div>
 <!--菜单-->
-<div class="menu_div" style="display: none">
+<div class="menu_div" style="display: none;">
     <div class="menu">
         <a id="unmenu" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
             <img src="https://livefile.xesimg.com/programme/python_assets/8dad10e36bc5005b311562298a17a4bf.png" alt="菜单" style="height: 1.3em; width: auto; margin-right: 2px;">
@@ -127,7 +213,7 @@
             <a id="about" href="javascript:void(0);" target="_self" style="display: flex; align-items: center;">
                 关于 ▼
             </a>
-            <div class="about" style="display: none">
+            <div class="about" style="display: none;">
                 <a href="https://voldemort230102.github.io/YuMeet/about/author" target="_self" style="display: flex; align-items: center;">
                     关于作者
                 </a>
@@ -147,55 +233,30 @@
         <h1>666666</h1>
         <p>感受？也许是吧……</p>
     </div>
-    <div class="page" style="display: flex;">
+    <div class="choice">
+        <a href="javascript:void(0);" onclick="switchtb('foreword');">前言</a>
+        <a href="javascript:void(0);" onclick="switchtb('body');">正文</a>
+    </div>
+
+    <div id="foreword" class="page" style="display: none; flex: 0;">
+        <h3>前言</h3>
+        <div style="text-align: left;">
+<!--            &emsp;&emsp;这是我想对你说的，也是想对自己说的，会时常更新，但更新时间不定，有时也会掺杂一些当日的见闻与感受-->
+        </div>
+        <small>（看到大标题下面，这段文字上面的选项卡了吗？选择它可以切换页面）</small>
         <!--<div class="content"></div>-->
     </div>
-    <div id="1" class="page" style="display: none; flex: 0">
-        <div class="choice" style="font-size: 0.9em;">
-            <a href="javascript:void(0);" onclick="switchtb('home');">返回上一级</a>
-        </div>
-        <h3>这是一段话</h3>
-        <div style="text-align: left">
-            &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
-        </div>
-        <br>
+
+    <div id="body" class="page" style="display: flex; flex: 0;">
+        <!--<div class="content"></div>-->
     </div>
-    <div id="2" class="page" style="display: none; flex: 0">
+
+    <div id="0" class="page" style="display: none; flex: 0">
         <div class="choice" style="font-size: 0.9em;">
-            <a href="javascript:void(0);" onclick="switchtb('home');">返回上一级</a>
+            <a href="javascript:void(0);" onclick="switchbody('p0');">返回上一级</a>
         </div>
         <h3>这是一段话</h3>
-        <div style="text-align: left">
-            &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
-        </div>
-        <br>
-    </div>
-    <div id="3" class="page" style="display: none; flex: 0">
-        <div class="choice" style="font-size: 0.9em;">
-            <a href="javascript:void(0);" onclick="switchtb('home');">返回上一级</a>
-        </div>
-        <h3>这是一段话</h3>
-        <div style="text-align: left">
-            &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
-        </div>
-        <br>
-    </div>
-    <div id="4" class="page" style="display: none; flex: 0">
-        <div class="choice" style="font-size: 0.9em;">
-            <a href="javascript:void(0);" onclick="switchtb('home');">返回上一级</a>
-        </div>
-        <h3>这是一段话</h3>
-        <div style="text-align: left">
-            &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
-        </div>
-        <br>
-    </div>
-    <div id="5" class="page" style="display: none; flex: 0">
-        <div class="choice" style="font-size: 0.9em;">
-            <a href="javascript:void(0);" onclick="switchtb('home');">返回上一级</a>
-        </div>
-        <h3>这是一段话</h3>
-        <div style="text-align: left">
+        <div style="text-align: left;">
             &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
         </div>
         <br>
