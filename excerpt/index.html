@@ -89,8 +89,53 @@
                     }
                 }
             }
+            // 每页5条语录
+            let excerpt = [
+                [
+                    "愿此去繁花似遇，再相逢依旧如故",
+                    "愿此去繁花似遇。再相逢依旧如故",
+                    "愿此去繁花似遇、再相逢依旧如故",
+                    "愿此去繁花似遇；再相逢依旧如故",
+                    "愿此去繁花似遇：再相逢依旧如故"
+                ],
+                [
+                    "这段文字上面的选项卡了吗。",
+                    "这段文字上面的选项卡了吗、",
+                    "这段文字上面的选项卡了吗？",
+                    "这段文字上面的选项卡了吗！",
+                    "这段文字上面的选项卡了吗@"
+                ],
+                [
+                    "愿此去繁花似遇，再相逢依旧如故",
+                    "愿此去繁花似遇。再相逢依旧如故",
+                    "愿此去繁花似遇、再相逢依旧如故",
+                    "愿此去繁花似遇；再相逢依旧如故",
+                    "愿此去繁花似遇：再相逢依旧如故"
+                ],
+                [
+                    "愿此去繁花似遇，再相逢依旧如故",
+                    "愿此去繁花似遇。再相逢依旧如故",
+                    "愿此去繁花似遇、再相逢依旧如故",
+                    "愿此去繁花似遇；再相逢依旧如故",
+                    "愿此去繁花似遇：再相逢依旧如故"
+                ],
+                [
+                    "愿此去繁花似遇，再相逢依旧如故",
+                    "愿此去繁花似遇。再相逢依旧如故",
+                    "愿此去繁花似遇、再相逢依旧如故",
+                    "愿此去繁花似遇；再相逢依旧如故",
+                    "愿此去繁花似遇：再相逢依旧如故"
+                ]
+            ];
+            let page_sum = excerpt.length;
             let lstP = ['p0', 'p1', 'p2', 'p3', 'p4'];
+            let P = 0;
             window.switchbody = function (id) {
+                // 更新页面部分
+                if(id == "none") {
+                    return;
+                }
+                P = Number(id.slice(1));
                 switchtb("body");
                 for (let i = 0;i<=lstP.length-1;i++)
                 {
@@ -103,71 +148,64 @@
                         $("#"+lstP[i]).css("display","none");
                     }
                 }
+                // 页码<
+                if(P == 0) {
+                    $("#pageNum").html("<div class='pageNum' onclick='switchbody(\"none\")'><</div>");
+                }
+                else {
+                    $("#pageNum").html("<div class='pageNum' onclick='switchbody(\"p"+(P-1)+"\")'><</div>");
+                }
+
+                // 中间页码逻辑
+                $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p0\")'>1</div>");
+                if(P-1 > 0) {
+                    $("#pageNum").append("<div style='background-color: transparent; color: black; font-weight: 700; margin-right: 10px;'>···</div>");
+                    $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p"+(P-1)+"\")'>"+P+"</div>");
+                }
+                if(P != 0 && P != page_sum-1) {
+                    $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p" + P + "\")'>" + (P + 1) + "</div>");
+                }
+                if(P+1 < page_sum-1) {
+                    $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p"+(P+1)+"\")'>"+(P+2)+"</div>");
+                    $("#pageNum").append("<div style='background-color: transparent; color: black; font-weight: 700; margin-right: 10px;'>···</div>");
+                }
+                $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p"+(page_sum-1)+"\")'>"+page_sum+"</div>");
+
+                // 页码>
+                if(P == page_sum-1) {
+                    $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"none\")'>></div>");
+                }
+                else {
+                    $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p"+(P+1)+"\")'>></div>");
+                }
             }
 
-            function whichOn() {
-                lstP
-            // TODO:这里！！！！！！！！！！！！！！！
-            }
             function show () {
-                // 每页5条语录
-                let excerpt = [
-                    {
-                        "愿此去繁花似遇，再相逢依旧如故": "1",
-                        "愿此去繁花似遇。再相逢依旧如故": "2",
-                        "愿此去繁花似遇、再相逢依旧如故": "3",
-                        "愿此去繁花似遇；再相逢依旧如故": "4",
-                        "愿此去繁花似遇：再相逢依旧如故": "5"
-                    },
-                    {
-                        "这段文字上面的选项卡了吗。": "1",
-                        "这段文字上面的选项卡了吗、": "2",
-                        "这段文字上面的选项卡了吗？": "3",
-                        "这段文字上面的选项卡了吗！": "4",
-                        "这段文字上面的选项卡了吗@": "5"
-                    },
-                    {
-                        "愿此去繁花似遇，再相逢依旧如故": "1",
-                        "愿此去繁花似遇。再相逢依旧如故": "2",
-                        "愿此去繁花似遇、再相逢依旧如故": "3",
-                        "愿此去繁花似遇；再相逢依旧如故": "4",
-                        "愿此去繁花似遇：再相逢依旧如故": "5"
-                    },
-                    {
-                        "愿此去繁花似遇，再相逢依旧如故": "1",
-                        "愿此去繁花似遇。再相逢依旧如故": "2",
-                        "愿此去繁花似遇、再相逢依旧如故": "3",
-                        "愿此去繁花似遇；再相逢依旧如故": "4",
-                        "愿此去繁花似遇：再相逢依旧如故": "5"
-                    },
-                    {
-                        "愿此去繁花似遇，再相逢依旧如故": "1",
-                        "愿此去繁花似遇。再相逢依旧如故": "2",
-                        "愿此去繁花似遇、再相逢依旧如故": "3",
-                        "愿此去繁花似遇；再相逢依旧如故": "4",
-                        "愿此去繁花似遇：再相逢依旧如故": "5"
-                    }
-                ];
-                let key = [];
-                let page_sum = excerpt.length;
-                for (let i = 0; i < page_sum; i++) {
-                    key.push(Object.keys(excerpt[i]));
-                    $(".page")[1].innerHTML += "<div id='p"+i+"'></div>";
+                for (let i = page_sum-1; i >= 0; i--) {
+                    $(".page")[1].innerHTML += "<div id='p"+(page_sum-i-1)+"'></div>";
                     // 语录壳子
                     for (let j = 0; j < 5; j++) {
-                        $("#p"+i).append("<div class=\"inside\" onclick='switchtb("+(i*5+j)+");'> <div class=\"word\">"+key[i][j]+"</div></div>");
+                        $("#p"+(page_sum-i-1)).append("<div class=\"inside\" onclick='switchtb("+((page_sum-i-1)*5+j)+");'> <div class=\"word\">"+excerpt[i][j]+"</div></div>");
                     }
                     if(i != 0) {
-                        $("#p"+i).css("display","none");
+                        $("#p"+(page_sum-i-1)).css("display","none");
                     }
                 }
 
                 $("#body").append("<div id='pageNum'></div>");
-                $("#pageNum").append("<div class='pageNum'><</div>");
+                $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"none\")'><</div>");
+                let f = true;
                 for (let j = 0; j < page_sum; j++) {
+                    if(j >= 2 && j < page_sum-1) {
+                        if(f) {
+                            $("#pageNum").append("<div style='background-color: transparent; color: black; font-weight: 700; margin-right: 10px;'>···</div>");
+                            f = false;
+                        }
+                        continue;
+                    }
                     $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p"+j+"\");'>"+(j+1)+"</div>");
                 }
-                $("#pageNum").append("<div class='pageNum'>></div>");
+                $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p1\")'>></div>");
             }
             $(document).ready(show);
         });
