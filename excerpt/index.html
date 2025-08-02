@@ -76,59 +76,29 @@
 
             window.switchtb = function (id) {
                 let lst = ['foreword', 'body',
-                    '0'];
-                for (let i = 0;i<=lst.length-1;i++)
-                {
-                    if (lst[i] == id)
-                    {
-                        $("#"+lst[i]).css("display","flex");
-                    }
-                    else
-                    {
-                        $("#"+lst[i]).css("display","none");
+                    1];
+                if (lst.includes(id)) {
+                    for (let i = 0; i <= lst.length - 1; i++) {
+                        if (lst[i] == id) {
+                            $("#" + lst[i]).css("display", "flex");
+                        } else {
+                            $("#" + lst[i]).css("display", "none");
+                        }
                     }
                 }
             }
             // 每页5条语录
             let excerpt = [
                 [
-                    "愿此去繁花似遇，再相逢依旧如故",
-                    "愿此去繁花似遇。再相逢依旧如故",
-                    "愿此去繁花似遇、再相逢依旧如故",
-                    "愿此去繁花似遇；再相逢依旧如故",
-                    "愿此去繁花似遇：再相逢依旧如故"
-                ],
-                [
-                    "这段文字上面的选项卡了吗。",
-                    "这段文字上面的选项卡了吗、",
-                    "这段文字上面的选项卡了吗？",
-                    "这段文字上面的选项卡了吗！",
-                    "这段文字上面的选项卡了吗@"
-                ],
-                [
-                    "愿此去繁花似遇，再相逢依旧如故",
-                    "愿此去繁花似遇。再相逢依旧如故",
-                    "愿此去繁花似遇、再相逢依旧如故",
-                    "愿此去繁花似遇；再相逢依旧如故",
-                    "愿此去繁花似遇：再相逢依旧如故"
-                ],
-                [
-                    "愿此去繁花似遇，再相逢依旧如故",
-                    "愿此去繁花似遇。再相逢依旧如故",
-                    "愿此去繁花似遇、再相逢依旧如故",
-                    "愿此去繁花似遇；再相逢依旧如故",
-                    "愿此去繁花似遇：再相逢依旧如故"
-                ],
-                [
-                    "愿此去繁花似遇，再相逢依旧如故",
-                    "愿此去繁花似遇。再相逢依旧如故",
+                    "拥抱我，直到我拥有和你同样的香气",
+                    "花会沿途盛开，我们的未来也是",
                     "愿此去繁花似遇、再相逢依旧如故",
                     "愿此去繁花似遇；再相逢依旧如故",
                     "愿此去繁花似遇：再相逢依旧如故"
                 ]
             ];
             let page_sum = excerpt.length;
-            let lstP = ['p0', 'p1', 'p2', 'p3', 'p4'];
+            let lstP = ['p0','p1','p2','p3','p4','p5','p6','p7','p8','p9'];
             let P = 0;
             window.switchbody = function (id) {
                 // 更新页面部分
@@ -169,7 +139,9 @@
                     $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p"+(P+1)+"\")'>"+(P+2)+"</div>");
                     $("#pageNum").append("<div style='background-color: transparent; color: black; font-weight: 700; margin-right: 10px;'>···</div>");
                 }
-                $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p"+(page_sum-1)+"\")'>"+page_sum+"</div>");
+                if(page_sum != 1) {
+                    $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p" + (page_sum - 1) + "\")'>" + page_sum + "</div>");
+                }
 
                 // 页码>
                 if(P == page_sum-1) {
@@ -181,13 +153,14 @@
             }
 
             function show () {
+                $(".page")[1].innerHTML += "<div class=\"choice\" style='font-size: 60%;'><a>有些标签可以点击哦</a></div>"
                 for (let i = page_sum-1; i >= 0; i--) {
                     $(".page")[1].innerHTML += "<div id='p"+(page_sum-i-1)+"'></div>";
                     // 语录壳子
                     for (let j = 0; j < 5; j++) {
                         $("#p"+(page_sum-i-1)).append("<div class=\"inside\" onclick='switchtb("+((page_sum-i-1)*5+j)+");'> <div class=\"word\">"+excerpt[i][j]+"</div></div>");
                     }
-                    if(i != 0) {
+                    if(i != page_sum-1) {
                         $("#p"+(page_sum-i-1)).css("display","none");
                     }
                 }
@@ -205,7 +178,12 @@
                     }
                     $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p"+j+"\");'>"+(j+1)+"</div>");
                 }
-                $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p1\")'>></div>");
+                if(page_sum != 1) {
+                    $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"p1\")'>></div>");
+                }
+                else {
+                    $("#pageNum").append("<div class='pageNum' onclick='switchbody(\"none\")'>></div>");
+                }
             }
             $(document).ready(show);
         });
@@ -269,7 +247,7 @@
 <div class="main">
     <div class="topic">
         <h1>666666</h1>
-        <p>感受？也许是吧……</p>
+        <p>感受？也许是吧……你康康这个网站的字体大小怎么样</p>
     </div>
     <div class="choice">
         <a href="javascript:void(0);" onclick="switchtb('foreword');">前言</a>
@@ -289,13 +267,13 @@
         <!--<div class="content"></div>-->
     </div>
 
-    <div id="0" class="page" style="display: none; flex: 0">
-        <div class="choice" style="font-size: 0.9em;">
+    <div id="1" class="page" style="display: none; flex: 0">
+        <div class="choice" style="font-size: 70%;">
             <a href="javascript:void(0);" onclick="switchbody('p0');">返回上一级</a>
         </div>
-        <h3>这是一段话</h3>
-        <div style="text-align: left;">
-            &emsp;&emsp;这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话这是一段话
+        <h3 class="pageContent">花会沿途盛开，我们的未来也是</h3>
+        <div class="pageContent" style="font-size: 150%; text-align: left;">
+            &emsp;&emsp;每当我自己一个人时，我总会不由自主地去想未来，我总是相信我们的未来会像花一样绽放，我从来都坚信
         </div>
         <br>
     </div>

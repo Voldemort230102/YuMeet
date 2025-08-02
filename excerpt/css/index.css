@@ -183,11 +183,11 @@ body {
 .writer{
     text-align: center;
     font-family: 'yrxk', cursive;
-    font-size: 115%;
+    font-size: 110%;
 }
 .writer {
     text-align: right;
-    font-size: 86.9565217391%;
+    font-size: 90.9090909091%;
 }
 .dash {
     font-family: 'mxs', cursive;
@@ -238,6 +238,11 @@ body {
     color: #f2f2f2;
     background-color: #BC8F8F;
     justify-content: center;
+}
+.pageContent {
+    font-family: 'yrxk', cursive;
+    font-size: 155%;
+    font-weight: normal;
 }
 
 .container {
